@@ -1,0 +1,206 @@
+Practical 1)
+Microsoft DirectX graphics include a set of APIs that help a user to create games and high-performance multimedia applications. The graphics of DirectX include support for high-performance 2D and 3D graphics.
+
+For 3D graphics, it is always recommended to use Microsoft Direct3D 11 API
+System Requirements
+The system requirements are as follows −
+
+-Windows 8 or higher versions of Windows.
+-Windows Server 2008 R2 or Windows Server 2008 with Service Pack 2 (SP2) and Platform Update for Windows Server 2008 and later.
+
+Direct3D is a low-level API that can be used to draw triangles, lines, or points per frame.
+The properties of Direct3D are mentioned below −
+
+-Hides different GPU implementations behind a coherent abstraction.
+-Designed to drive a separate graphics-specific processor.
+-Newer GPUs have hundreds or thousands of parallel processors.
+-Emphasizes parallel processing. A user can set up a bunch of rendering or compute state and then start an operation.
+
+• Microsoft.DirectX.Direct3D.Device: Performs primitive-based rendering, creates resources, 
+handles system-level variables, adjusts gamma ramp levels, gets and sets palettes, and 
+creates shaders.
+• Microsoft.DirectX.Direct3D.Device device: Initializes a new instance of the current class
+• InitializeComponent(): a method automatically written for you by the Form Designer when 
+you create/change your forms. It contains the code that creates and initializes the user 
+interface objects dragged on the form surface with the values provided by the programmer 
+using the Property Grid of the Form Designer.
+• PresentParameters: Describes the presentation parameters. Properties are:
+▪ Windowed: Boolean value that indicates whether an application is running in a 
+windowed mode.
+▪ SwapEffect: Retrieves or sets the swap effect.
+
+
+
+
+
+
+Practical 2)
+Buffer:
+For the GPU to access an array of vertices, they need to be placed in a special resource structure called a buffer, which is represented by the ID3D11Buffer interface.
+A buffer that stores vertices is called a vertex buffer. Direct3D buffers not only store data, but also describe how the data will be accessed and where it will be bound to the rendering pipeline.
+
+Blend:
+DirectX includes a blending property which defines the combination of creation from the existing one. Consider that there are two sources namely: Source 1 and Source 2 where Source 1 refers to the data source for source pixel blending factor and Source 2 is the data source for destination pixel blending factor. DirectX does the blending in such a way that the source pixel is always the fragment coming from the pixel shader’s output and the destination pixel is always the pixel from the current active render target.
+
+HLSL:
+The high-level shader language or high-level shading language is considered as a proprietary shading language which is developed by Microsoft. It includes an API to augment the shader assembly language. DirectX includes various versions of programmable shaders.
+Working in the assembly language helps user to create API in short supply. NVidia and Microsoft hold their position in PC graphics market and collaboration with more accessible shader language. Both the compile shaders are implemented for DirectX.
+• CustomVertex class: Defines various custom fixed-format vertex types. This class is a 
+container of structures.
+• CustomVertex.TransformedColored: Describes a custom vertex format structure that 
+contains transformed vertices and color information.
+
+Vertex Shaders
+Vertex shaders are small programs that are written mainly for transforming the vertices from the vertex buffer into 3D space. There are other calculations that can be done such as calculating normals for each vertex. The vertex shader program will be called by the GPU for each vertex it needs to process. For example a 5,000 polygon model will run your vertex shader program 15,000 times each frame just to draw that single model. So if you lock your graphics program to 60 fps it will call your vertex shader 900,000 times a second to draw just 5,000 triangles. As you can tell writing efficient vertex shaders is important.
+
+Pixel Shaders
+Pixel shaders are small programs that are written for doing the coloring of the polygons that we draw. They are run by the GPU for every visible pixel that will be drawn to the screen. Coloring, texturing, lighting, and most other effects you plan to do to your polygon faces are handled by the pixel shader program. Pixel shaders must be efficiently written due to the number of times they will be called by the GPU.
+
+
+
+
+
+
+
+Practical 3)
+Texturing
+A texture resource is considered as a core part of gaming programming. It includes structured collection of data which is designed to store texels. Texel represents the smallest unit of a texture which can be read or written with the help of pipeline. Textures can be filtered by texture samplers as they are read by shader units. The texel includes 1 to 4 components which are arranged in DXGI formats. These textures are created as a structured resource with the mentioned size. The texture can be considered as typed or typeless based on the resource that is being created.
+
+Now let us focus on the texture types which are primarily used by DirectX. Different textures are mentioned below −
+
+1D Textures
+1D Texture Arrays
+2D Textures and 2D Texture Arrays
+3D Textures
+
+• VertexFormat: Describes values that define a vertex format used to describe the contents of 
+vertices that are stored interleaved in a single data stream.
+• device.DrawUserPrimitives(PrimitiveType,Int32,Object) method: Renders data specified by 
+a user memory pointer as a sequence of geometric primitives of the specified type.
+
+
+
+
+
+
+Practical 4)
+DirectX is known for creating lights which is similar to real world lighting. It includes a system of varied calculation which is less time consuming and demonstrates the real world system. Lighting is considered as an important part of 3D game programming. Lighting helps user to bring the realism out and make it as a real time experience. The DirectX system includes built up of various set of types like lightning and types of light sources. Now, it is important to focus on three types of lightning as mentioned below −
+
+Diffuse Lighting
+Ambient Lighting
+Specular Lighting
+
+Diffuse Lighting
+Diffuse light is a dim light which falls on the surface. The best demonstration is a user holding up hand with this light source. It will be visible that one side of hand is lit while the other side is not. The side which is lit is called as diffuse light and the procedure is called diffuse lighting.
+
+Ambient Lighting
+Ambient light refers to the light which spreads everywhere. As per the previous example, holding up the arm with one light source, the dark side is called as lightly lit or ambient lit. The light which is reflected is considered as ambient light and the process is called as ambient lighting.
+
+
+
+
+
+
+Practical 5)
+Specular Light
+Specular light is also called as specular highlight or even more commonly as reflection. When light reflects off the required object, usually most of the light will go in one specific direction.
+
+-Transforms.Projection property: Retrieves or sets the projection transformation Matrix.
+-Matrix.PerspectiveFovLH method: Builds a left-handed perspective projection matrix based 
+on a field of view.
+	▪ Input arguments to PerspectiveFovLH are as follows.
+	//Values provided below are examples
+	1) Field of view in radians: pi/4.
+	2) Aspect ratio, or view-space height divided by width: 1, for a 	square window.
+	3) Near clipping plane distance: 1 unit.
+	4) Far clipping plane distance: 100 units.
+
+	▪ SYNTAX EG:
+	device.Transform.Projection = Matrix.PerspectiveFovLH	((float)Math.PI / 4, 1.0f, 1.0f, 
+	100.0f );
+• Transforms.View property: Retrieves or sets the view transformation matrix.
+
+
+
+
+
+
+Practical 6)
+• Matrix.LookAtLH method: Builds a left-handed look-at matrix.
+	▪ The three input vectors represent the following, respectively:
+	//Values provided below are just for example 
+	1) The eye point: [0, 3, -5].
+	2) The camera look-at target: the origin [0, 0, 0].
+	3) The current world's up-direction: usually [0, 1, 0].
+	▪ SYNTAX EG:
+	device.Transform.View = Microsoft.DirectX.Matrix.LookAtLH(
+	new Vector3(0.0f, 3.0f, -5.0f), new Vector3(0.0f, 0.0f, 0.0f), new 	Vector3(0.0f, 1.0f, 
+	0.0f));
+• device.RenderState property: Retrieves a render-state value for a device.
+• CustomVertex.PositionTextured structure: Describes a custom vertex format structure that 
+contains position and one set of texture coordinates.
+• Texture.FromBitmap(Device,Bitmap,Usage,Pool) method: Creates a texture resource from 
+a bitmap.
+• Device.SetTexture method: Assigns a texture to a device stage.
+
+
+
+
+
+
+Practical 7)
+• Light class: Defines a set of lighting properties.
+	▪ Properties:
+	1) Light.Type: Retrieves or sets the type of the light source.
+	2) Light.Diffuse: Retrieves or sets the diffuse color emitted by 	the light.
+	3) Light.Enabled: Retrieves or sets a Boolean value that enables 		or disables a set of lighting parameters within a device.
+	4) Light.Direction: Retrieves or sets the direction in which the 		light is pointing in world space, as specified by a Vector3 	structure.
+• Vector3: Describes and manipulates a vector in three-dimensional (3-D) space.
+
+
+
+
+
+
+Practical 8)
+System.Drawing Namespace : The System.Drawing namespace provides access to GDI+ 
+basic graphics functionality.
+• Font class: Defines a particular format for text, including font face, size, and style attributes. 
+This class cannot be inherited.
+	▪ Constructor:
+	Font(FontFamily, Single, FontStyle) : Initializes a new Font using 	a specified size and style.
+	▪ Method:
+	Font.DrawText : Draws formatted text.
+• Sprite class: Provides methods and properties that simplify the process of drawing sprites 
+using Microsoft Direct3D.
+	▪ Methods:
+	1) Begin : Prepares a device for drawing sprites.
+	2) Draw2D : Adds a sprite to the list of batched sprites. Used for 	presentation in 2-D space.
+
+
+
+
+
+
+Practical 9)
+• TextureLoader.FromFile(Device,String,Int32,Int32,Int32,Usage,Format,Pool,Filter,Filter,Int32) 
+	method: Creates a texture from a file.
+	▪ Parameters:
+	1) device : A Device object that represents the device to 	associate with thetexture.
+	2) srcFile : String that specifies the file name.
+	3) width : Width of the texture in pixels. If this value is zero, 	the dimensions are taken from the file.
+	4) height : Height of the texture in pixels. If this value is 	zero, the dimensions are taken from the file.
+	5) mipLevels : Number of mip levels requested. If this value is 0, 	a complete mipmap chain is created.
+	6) usage : Zero or Usage.RenderTarget, or Usage.Dynamic. Setting 	this flag to Usage.RenderTarget indicates that the surface will be 	used as a render target.
+	7) format : Member of the Format enumerated type that describes 	the requested pixel format for the cube texture.
+	8) pool : Member of the Pool enumerated type that describes the 	memory class into which the cube texture should be placed.
+	9) filter : One or more Filter flags that control how the image is 	filtered.
+	10) mipFilter : One or more Filter flags that control how the 	mipmaps are filtered.
+	11) colorKey : An Int32 value to replace with transparent black, 	or 0 to disable the color key
+
+
+10)
+Augmented reality and virtual reality are reality technologies that either enhance or replace a real-life environment with a simulated one.
+
+•Augmented reality (AR) augments your surroundings by adding digital elements to a live view, often by using the camera on a smartphone. 
+•Virtual reality (VR) is a completely immersive experience that replaces a real-life environment with a simulated one.
